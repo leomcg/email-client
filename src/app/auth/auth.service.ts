@@ -36,7 +36,7 @@ interface signinResponse {
 })
 export class AuthService {
   rootUrl = 'https://api.angular-email.com';
-  signedin$ = new BehaviorSubject(false); // the $ indicates that this property is an Observable
+  signedin$ = new BehaviorSubject(null); // the $ indicates that this property is an Observable
 
   constructor(private http: HttpClient) { }
 
