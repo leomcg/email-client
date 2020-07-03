@@ -9,7 +9,7 @@ export class EmailCreateComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
 }

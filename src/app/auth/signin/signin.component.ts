@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-signin',
@@ -19,16 +19,13 @@ export class SigninComponent implements OnInit {
     password: new FormControl('', [
       Validators.required,
       Validators.minLength(4),
-      Validators.maxLength(20),
+      Validators.maxLength(20)
     ])
   });
-  constructor(
-    private authService: AuthService,
-    private router: Router
-  ) { }
 
-  ngOnInit(): void {
-  }
+  constructor(private authService: AuthService, private router: Router) {}
+
+  ngOnInit() {}
 
   onSubmit() {
     if (this.authForm.invalid) {
@@ -36,18 +33,14 @@ export class SigninComponent implements OnInit {
     }
 
     this.authService.signin(this.authForm.value).subscribe({
-      next: response => {
+      next: () => {
         this.router.navigateByUrl('/inbox');
       },
-      error: err => {
-        console.log(err);
-        if (err.error.username) {
-          this.authForm.setErrors({ invalidUsername: true });
-        } else if (err.error.password) {
-          this.authForm.setErrors({ invalidPassword: true });
+      error: ({ error }) => {
+        if (error.username || error.password) {
+          this.authForm.setErrors({ credentials: true });
         }
       }
-    })
+    });
   }
-
 }

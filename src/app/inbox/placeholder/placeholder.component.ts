@@ -9,7 +9,7 @@ export class PlaceholderComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
 }

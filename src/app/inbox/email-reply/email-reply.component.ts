@@ -9,7 +9,7 @@ export class EmailReplyComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
 }

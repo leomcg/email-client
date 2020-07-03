@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { EmailService } from '../email.service';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +9,7 @@ export class HomeComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
 }
